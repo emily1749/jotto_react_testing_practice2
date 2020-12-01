@@ -1,17 +1,16 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import Congrats from './Congrats';
-import checkPropTypes from 'check-prop-types';
+import { shallow } from 'enzyme';
+// import checkPropTypes from 'check-prop-types';
 
 import { findByTestAttr, checkProps } from '../test/testUtils';
-Enzyme.configure({ adapter: new Adapter() });
+import Congrats from './Congrats';
 
 //test renders wihtout error
 //test doesnt render when success false
 //renders non empty message when successs is true
 
 const defaultProps = { success: false };
+
 const setup = (props = {}) => {
   const setupProps = { ...defaultProps, ...props };
   //itll override it if there is

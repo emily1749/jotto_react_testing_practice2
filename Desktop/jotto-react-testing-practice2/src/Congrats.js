@@ -15,6 +15,10 @@ const Congrats = props => {
   }
 };
 
+//you have a component, and here you list what props you need
+//and what types are expected
+//if called without this type then itll throw a warning
+//just make sure props expect to be correct are correct
 Congrats.propTypes = {
   success: PropTypes.bool.isRequired,
 };
