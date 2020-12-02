@@ -1,12 +1,11 @@
-import { EnzymeAdapter } from 'enzyme';
 import React from 'react';
 import { shallow } from 'enzyme';
 import { findByTestAttr, checkProps } from '../test/testUtils';
 import GuessedWords from './GuessedWords';
 
+//   guessedWords: [{ guessedWord: 'train', letterMatchCount: 3 }],
 const defaultProps = {
-  //   guessedWords: [{ guessedWord: 'train', letterMatchCount: 3 }],
-  guessedWords: [{ guessedWord: 'fooey' }],
+  guessedWords: [{ guessedWord: 'train', letterMatchCount: 3 }],
 };
 
 const setup = (props = {}) => {
@@ -14,12 +13,11 @@ const setup = (props = {}) => {
   return shallow(<GuessedWords {...setupProps} />);
 };
 
+//check props is taking a component(guessedwords)
+//and taking some props and checking to see that no error is thrown
+//when given these props
+//want to check that these props that we think should pass will pass the component
 test('does not throw warning with expected props', () => {
-  //check props is taking a component(guessedwords)
-  //and taking some props and checking to see that no error is thrown
-  //when given these props
-  //want to check that these props that we think should pass will pass the component
-
   checkProps(GuessedWords, defaultProps);
 });
 
@@ -32,7 +30,7 @@ describe('if there are no words guessed', () => {
   beforeEach(() => {
     wrapper = setup({ guessedWords: [] });
   });
-  test('render without error', () => {
+  test('renders without error', () => {
     const component = findByTestAttr(wrapper, 'component-guessed-words');
     expect(component.length).toBe(1);
   });
@@ -41,7 +39,7 @@ describe('if there are no words guessed', () => {
     expect(instructions.text().length).not.toBe(0);
   });
 });
-describe('If there are words guessed', () => {
+describe('if there are words guessed', () => {
   let wrapper;
   const guessedWords = [
     { guessedWord: 'train', letterMatchCount: 3 },
@@ -51,7 +49,6 @@ describe('If there are words guessed', () => {
   beforeEach(() => {
     wrapper = setup({ guessedWords });
   });
-
   test('renders without error', () => {
     const component = findByTestAttr(wrapper, 'component-guessed-words');
     expect(component.length).toBe(1);
@@ -61,7 +58,7 @@ describe('If there are words guessed', () => {
     expect(guessedWordsNode.length).toBe(1);
   });
   test('correct number of guessed words', () => {
-    const guessedWordsNodes = findByTestAttr(wrapper, 'guessed-word');
-    expect(guessedWordsNodes.length).toBe(guessedWords.length);
+    const guessedWordNodes = findByTestAttr(wrapper, 'guessed-word');
+    expect(guessedWordNodes.length).toBe(guessedWords.length);
   });
 });
