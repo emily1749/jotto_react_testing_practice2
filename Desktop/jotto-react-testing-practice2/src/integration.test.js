@@ -1,6 +1,10 @@
 import { storeFactory } from '../test/testUtils';
 import { guessWord } from './actions';
 
+//thunk integration testing
+//create a store with initial state
+//dispatch action creator
+//check state
 describe('guessWord action dispatcher', () => {
   const secretWord = 'party';
   const unsuccessfulGuess = 'train';
@@ -64,7 +68,10 @@ describe('guessWord action dispatcher', () => {
       const expectedState = {
         secretWord,
         success: true,
-        guessedWords: [...guessedWords, { guessedWord: secretWord }],
+        guessedWords: [
+          ...guessedWords,
+          { guessedWord: secretWord, letterMatchCount: 5 },
+        ],
       };
       expect(newState).toEqual(expectedState);
     });
