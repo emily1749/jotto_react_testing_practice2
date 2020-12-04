@@ -4,7 +4,7 @@ import { guessWord } from './actions';
 //thunk integration testing
 //create a store with initial state
 //dispatch action creator
-//check state
+//check state if it was updated the way you expected it to be
 describe('guessWord action dispatcher', () => {
   const secretWord = 'party';
   const unsuccessfulGuess = 'train';

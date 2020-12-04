@@ -9,6 +9,9 @@ const defaultProps = {
 };
 
 const setup = (props = {}) => {
+  //setup props. default props with argument props on  top
+  //were going to be checking we have certain required props
+  //have required props in test will avoid that warning
   const setupProps = { ...defaultProps, ...props };
   return shallow(<GuessedWords {...setupProps} />);
 };
@@ -18,6 +21,7 @@ const setup = (props = {}) => {
 //when given these props
 //want to check that these props that we think should pass will pass the component
 test('does not throw warning with expected props', () => {
+  //just checking that theres no error thrownn when we try thos e props
   checkProps(GuessedWords, defaultProps);
 });
 

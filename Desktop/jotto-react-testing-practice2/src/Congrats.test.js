@@ -13,6 +13,7 @@ const defaultProps = { success: false };
 
 const setup = (props = {}) => {
   const setupProps = { ...defaultProps, ...props };
+  //the spread just copies the props
   //itll override it if there is
   return shallow(<Congrats {...setupProps} />);
 };
