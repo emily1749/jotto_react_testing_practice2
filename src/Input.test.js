@@ -63,3 +63,20 @@ describe('render', () => {
     test('does not render submit button', () => {});
   });
 });
+
+describe('redux props', () => {
+  test ('has success piece of state as prop', () => {
+    const success = true;
+    const wrapper = setup({success});
+    const successProp = wrapper.instance().props.success;
+    expect(successProp).toBe(success);
+  })
+
+  //hard to test equality of exact funciton
+  //so just testing action creator exist and is a function
+  test('"guessWord" action creator is a function propp', ()=>{
+    const wrapper = setup();
+    const guessWordProp = wrapper.instance().props.guessWord;
+    expect(guesssWordProp).toBeInstanceOf(Function);
+  })
+}
